@@ -279,8 +279,8 @@
 // console.log(newArr);
 
 //TODO
-let str = 'string';
-console.log(str = str.substring(0,3));
+// let str = 'string';
+// console.log(str = str.substring(0,3));
 // let str = '01.01.2025'
 // let date = Date.parse(str);
 
@@ -311,4 +311,41 @@ console.log(str = str.substring(0,3));
 // }
 
 // setTimeout(print, 1000);
+
+//TODO
+
+let str = 'string that ends with dots... '+
+'and have some text after! and onother? string???';
+let tempIndex;
+
+//?func
+function startElementSearching() {
+	const searchingSymbolsArr = ['.', '?', '!'];
+	let searchingIndexArr = [];
+
+	searchingSymbolsArr.forEach((e) => {
+		searchingIndexArr.push(str.indexOf(e));
+	})
+	searchingIndexArr = searchingIndexArr.filter(e => e > 0);
+	
+	return Math.min(...searchingIndexArr);
+}
+
+let arrOfSentences = [];
+while (str.length !== 0) {
+	tempIndex = startElementSearching();
+	//shift if nextsymbol is '?||.||!'
+	while (str[tempIndex + 1] === '.' || str[tempIndex + 1] === '?' || str[tempIndex + 1] === '!') {
+		++tempIndex;
+	};
+	arrOfSentences.push(str.slice(0, tempIndex + 1));
+	//shift if nextsymbol is ' '
+	if (str[tempIndex + 1] === ' ') ++tempIndex;
+	str = str.slice(tempIndex + 1);
+}
+
+
+
+console.table(arrOfSentences);
+console.log(str);
 
