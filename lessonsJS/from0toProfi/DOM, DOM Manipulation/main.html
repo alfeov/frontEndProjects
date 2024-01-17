@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DOM, DOM Manipulation</title>
+	<style>
+		*, *::after, *::before {
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+		}
+		/* div {
+			height: 30px;
+			width: 30px;
+		}
+		#world_1 {
+			display: none;
+		}		 */
+		/*
+		From top/\ to bottom\/
+		*/
+		/* #world_1 {
+			display: block;
+		}
+		section {
+			display: none;
+		}
+		section.border:has(+section) {
+			border-bottom: 1px solid black;
+		}		
+		section.border:not(:has(+section)) {
+			border-bottom: 1px solid black;
+		}
+		section.border {
+			display: flex;
+			border-left: 1px solid black;
+			border-right: 1px solid black; */
+			/* border-bottom: 2px;  */
+			/*!DO NOT WORKING (Specificy)*/
+			/* width: 60px;
+			margin: auto;
+		}
+		section:nth-child(1) {
+			margin-top: 30px;
+		}
+		section.border:nth-child(1) {
+			border-top: 1px solid black;
+		} */
+		/* footer {
+			width: 100%;
+			display: flex;
+		} */
+		/* body {
+			display: flex;
+			flex-direction: column;
+		}
+		#button {
+			width: 100px;
+			background-color: black;
+			color: white;
+			border: 0px;
+			height: 40px;
+			margin: 30px auto;
+			border-radius: 25px 0 25px 0;
+		} */
+
+	</style>
+</head>
+<body>
+	<!-- <section class="test">  -->
+		<!-- classList toggle don't swap all classes to certain -->
+		<!-- <div id="white"></div>
+		<div id="orange"></div>
+	</section>
+	<section>
+		<div id="orange"></div>
+		<div id="orange"></div>
+	</section>
+	<section>
+		<div id="white"></div>
+		<div id="green"></div>
+	</section>
+	<section>
+		<div id="white"></div>
+		<div id="blue"></div>
+	</section>
+	<section>
+		<div id="blue"></div>
+		<div id="blue"></div>
+	</section>
+	<section>
+		<div id="green"></div>
+		<div id="green"></div>
+	</section>
+	<section>
+		<div id="white"></div>
+		<div id="brown"></div>
+	</section>
+	<section>
+		<div id="brown"></div>
+		<div id="brown"></div>
+	</section>
+	<button id="button">Test button</button> -->
+	<div id="message"></div>
+	<div id="output"></div>
+	<input id="input" type="text" onchange="pushFriend(this.value)">
+	<script src="script.js"></script>
+</body>
+</html>
