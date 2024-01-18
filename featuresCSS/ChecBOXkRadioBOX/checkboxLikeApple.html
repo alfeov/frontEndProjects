@@ -13,9 +13,12 @@
 		html {
 			font-size: 18px;
 		}
+		body {
+			transition: 0.25s linear background;
+		}
 		.wrapper {
 			max-width: 400px;
-			margin: 0 auto;
+			margin: 100px auto;
 			padding: 20px;
 			background-color: whitesmoke;
 			height: 200px;
@@ -23,6 +26,7 @@
 			align-items: center;
 			justify-content: center;
 			flex-direction: column;
+			transition: 0.25s linear background;
 		}
 
 		.label {
@@ -64,6 +68,17 @@
 			outline: 2px solid rgb(5, 99, 240);
 			outline-offset: 2px;
 		}
+
+		.wrapper:has(.checkboxLikeApple:checked) {
+			background-color: #404040;
+		}		
+		body:has(.checkboxLikeApple:checked) {
+			background-color: #262626;
+			color: whitesmoke;
+		}
+		/* .checkboxLikeApple:checked body {
+			background-color: black;
+		} */
 
 		label {
 			font-size: 2rem;
