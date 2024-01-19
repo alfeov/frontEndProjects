@@ -36,6 +36,11 @@ body {
 	height: 45px;
 	margin: 30px auto;
 	border-radius: 25px 0 25px 0;
+	transition: 0.3s cubic-bezier(0.1, -0.6, 0.2, 0);
+}
+.start_button:hover {
+	box-shadow: 0 0 20px black;
+	transform: translateY(-3px);
 }
 .wrapper_output {
 	margin-top: 30px;
@@ -54,4 +59,35 @@ body {
 	padding: 1px 0 0 1px;
 	margin: 0;
 	text-transform: capitalize;
+}
+.char.outline_correct {
+	border: black 2px solid;
+	color: black;
+}
+.char.outline_error {
+	border: red 2px solid;
+}
+.congrat {
+	margin: 30px auto;
+	display: none;
+}
+
+.lifes {
+	border: 2px solid gray;
+	padding: 10px;
+	margin: 30px auto;
+	display: flex;
+	gap: 5px;
+	background-color: black;
+}
+/* .lifes::after{
+	content: '';
+	border: 2px solid gray;
+	height: 10px;
+	width: 5px;
+} */
+.life {
+	width: 40px;
+	height: 30px;
+	/* border: 2px solid gray; */
 }
