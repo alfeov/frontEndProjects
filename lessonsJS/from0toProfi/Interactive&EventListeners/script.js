@@ -84,7 +84,7 @@ window.addEventListener('load', loadStyleRemove);
 //TODO
 
 // let output = document.querySelector('.output1');
-let input1 = document.querySelector('input[name="first"]');
+// let input1 = document.querySelector('input[name="first"]');
 // let input2 = document.querySelector('input[name="last"]');
 // console.log(input2);
 // let arr = [input1, input2]
@@ -243,28 +243,116 @@ let input1 = document.querySelector('input[name="first"]');
 
 //TODO
 
-let boxs = document.querySelectorAll('.box');
-let color = 30;
-for (let i = 0; i< boxs.length; i++) {
-	boxs[i].style.backgroundColor = 	`rgb(${color}, ${color}, ${color})`
-	color += 30;
-}
+// let boxs = document.querySelectorAll('.box');
+// let color = 30;
+// for (let i = 0; i< boxs.length; i++) {
+// 	boxs[i].style.backgroundColor = 	`rgb(${color}, ${color}, ${color})`
+// 	color += 30;
+// }
 
-let section = document.querySelector('#section');
-const history = [];
+// let section = document.querySelector('#section');
+// const history = [];
 
-section.addEventListener('click', tracker);
+// section.addEventListener('click', tracker);
 
-function tracker() {
-	if (event.target.classList.value) {
-		const tempObj = {}; //! Mutation
-		tempObj.textContent = event.target.textContent;
-		tempObj.id = event.target.id;
-		tempObj.tagName = event.target.tagName;
-		tempObj.className = event.target.classList.value;
-		history.push(tempObj);
-		for (let key of history) {
-			console.log(key);
-		}
+// function tracker() {
+// 	if (event.target.classList.value) {
+// 		const tempObj = {}; //! Mutation
+// 		tempObj.textContent = event.target.textContent;
+// 		tempObj.id = event.target.id;
+// 		tempObj.tagName = event.target.tagName;
+// 		tempObj.className = event.target.classList.value;
+// 		history.push(tempObj);
+// 		for (let key of history) {
+// 			console.log(key);
+// 		}
+// 	}
+// }
+
+//TODO
+
+// let stars = document.querySelectorAll('.star');
+// let output = document.querySelector('.output');
+// for (let i = 0; i < stars.length; i++) {
+// 	stars[i].dataset.index = i + 1;
+// 	stars[i].addEventListener('click', starRate);
+// }
+
+// let total = 0;
+// function starRate() {
+// 	total = event.target.dataset.index;
+// 	stars.forEach((star) => {
+// 		if (star.dataset.index <= total) {
+// 			star.classList.add('orange');
+// 		} else {
+// 			star.classList.remove('orange');
+// 		}
+// 	})
+// 	output.innerText = `You Rated this ${event.target.dataset.index} stars`;
+// }
+
+//TODO
+
+// let section = document.querySelector('.section');
+// let output = document.querySelector('.output');
+// section.addEventListener('mousemove', updateXY);
+
+// function updateXY() {
+// 	output.innerText = `X:${event.x} Y:${event.y}`;
+// }
+
+//TODO
+
+let section = document.querySelector('.section');
+let targ = document.querySelector('.target');
+let output = document.querySelector('.output');
+
+section.addEventListener('click', clicked);
+
+
+
+(function startGame() {
+	let lifes = 10;
+	let counter = 0;
+	window.lifes = lifes;
+	window.counter = counter;
+})();
+
+
+function clicked() {
+	if (event.target === targ) {
+		++counter;
+		//! console.log(counter);
+		responseTime();
+		spawn();
+	} else {
+		--lifes;
+		//! console.log(lifes);
 	}
+
 }
+function spawn() {
+	let leftShift;
+	let topShift;
+	leftShift = Math.floor(Math.random() * (section.offsetWidth - targ.offsetWidth));
+	topShift = Math.floor(Math.random() * (section.offsetHeight - targ.offsetHeight));
+	targ.style.transform = `translateX(${leftShift}px) translateY(${topShift}px)`;
+}
+
+let time = 'start';
+function responseTime() {
+	if (!isNaN(time)) {
+		output.innerText = Date.now() - time;
+	} 
+	time = Date.now();
+}
+
+// let q = 10;
+// setInterval(() => {
+// 	if (q < 1) {
+// 		clearInterval();
+// 	} else {
+// 		spawn();
+// 		q--
+// 	}
+// }, 20);

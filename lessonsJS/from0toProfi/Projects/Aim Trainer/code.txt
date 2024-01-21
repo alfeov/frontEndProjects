@@ -1,0 +1,43 @@
+let section = document.querySelector('.section');
+let targ = document.querySelector('.target');
+let output = document.querySelector('.output');
+
+section.addEventListener('click', clicked);
+
+
+
+(function startGame() {
+	let lifes = 10;
+	let counter = 0;
+	window.lifes = lifes;
+	window.counter = counter;
+})();
+
+
+function clicked() {
+	if (event.target === targ) {
+		++counter;
+		//! console.log(counter);
+		responseTime();
+		spawn();
+	} else {
+		--lifes;
+		//! console.log(lifes);
+	}
+
+}
+function spawn() {
+	let leftShift;
+	let topShift;
+	leftShift = Math.floor(Math.random() * (section.offsetWidth - targ.offsetWidth));
+	topShift = Math.floor(Math.random() * (section.offsetHeight - targ.offsetHeight));
+	targ.style.transform = `translateX(${leftShift}px) translateY(${topShift}px)`;
+}
+
+let time = 'start';
+function responseTime() {
+	if (!isNaN(time)) {
+		output.innerText = Date.now() - time;
+	} 
+	time = Date.now();
+}

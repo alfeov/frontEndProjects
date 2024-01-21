@@ -7,23 +7,35 @@
 	<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-	<!-- <main>
-		
-	</main> -->
-	<div class="wrapper_input">
-		<input type="text" class="input">
-	</div>
-	<input type="button" value="Start Game" class="start_button" onclick="startGame()">
-	<section class="wrapper_output"></section>
-	<section class="congrat"></section>
-	<section class="lifes">
-		<div class="life"></div>
-		<div class="life"></div>
-		<div class="life"></div>
-		<div class="life"></div>
-		<div class="life"></div>
-		<div class="life"></div>
-	</section>
+	<main>
+
+		<section class="start_screen">	
+			<h1>Han<span>g</span>man</h1>
+			<div class="wrapper_input">
+				<input id="input" type="text" class="input">
+			</div>
+			<button class="start_button" onclick="startGame()">Start Game</button>
+		</section>
+
+		<section class="game_screen display_none">
+			<h2>Guess the letters</h2>
+			<section class="wrapper_output"></section>
+			<div class="wrapper">
+				<section class="lifes">
+					<div class="life"></div>
+					<div class="life"></div>
+					<div class="life"></div>
+					<div class="life"></div>
+					<div class="life"></div>
+					<div class="life"></div>
+				</section>
+				<div style="position: absolute; left: 50%;">
+					<button class="restart_button" onclick="restartGame()">Restart</button>
+				</div>
+			</div>
+		</section>
+
+	</main>
 	<script src="script.js"></script>
 </body>
 </html>
