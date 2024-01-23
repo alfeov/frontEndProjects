@@ -7,6 +7,9 @@ html {
 	font-size: 24px;
 }
 body {
+	width: 100%;
+	height: 100svh;
+	overflow: hidden;
 	background-color: rgb(255, 255, 255);
 }
 .start_screen, .game_screen {
@@ -16,10 +19,25 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	text-align: center;
+	transition: 1s linear;
+}
+
+.start_screen, .game_screen {
+	transform: translateY(0px);
+	opacity: 1;
+}
+.start_screen.not_active {
+	transform: translateY(-40px);
+	opacity: 0;
+}
+.game_screen.not_active {
+	transform: translateY(40px);
+	opacity: 0;
 }
 .display_none {
 	display: none;
 }
+
 h1 {
 	font-size: 2rem;
 	position: relative;

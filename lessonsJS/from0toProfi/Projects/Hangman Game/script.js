@@ -39,8 +39,9 @@ function startGame() {
 		inputValue = input.value.toUpperCase().split('');
 		input.value = '';
 		outputAdd(inputValue.length);
+		startScreen.classList.add('display_none', 'not_active');
 		gameScreen.classList.remove('display_none');
-		startScreen.classList.add('display_none');
+		afterAll('gameScreen.classList.remove(\'not_active\')');
 	}
 } 
 
@@ -55,7 +56,7 @@ function outputAdd(length) {
 	//firstFocus
 	for (let i = 0; i < charset.length; i++) {
 		if (charset[i].disabled === false) {
-			charset[i].focus();
+			afterAll('charset[i].focus()', i);
 			break;
 		}
 	}
@@ -155,9 +156,19 @@ function nextChar() {
 	}
 }
 function restartGame() {
-	gameScreen.classList.add('display_none');
+	gameScreen.classList.add('display_none', 'not_active');
 	startScreen.classList.remove('display_none');
+	afterAll('startScreen.classList.remove(\'not_active\')')
 }
+
+
+function afterAll(execute, i) {
+	setTimeout(() => {
+		eval(execute); //yes it's dangerous, but it only test
+	}, 0);
+}
+
+
 // const outer = (even = 3) => {
 // 	if (even) {
 // 		var test = even;
