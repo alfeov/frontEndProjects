@@ -82,84 +82,231 @@
 // 	return cookieValue;
 // }
 
-// function createCookie(cName, cValue, days) {
+//TODO
+
+// function createCookie(cKey, cValue, days) {
+// 	function getDate(cDays) {
+// 		let now = new Date();
+// 		let date = new Date(now.setDate(now.getDate() + cDays));
+// 		return date.toUTCString();
+// 	}
 // 	let cDate = getDate(days);
-// 	console.log(cDate.toUTCString());
-// 	document.cookie = '; ' + cName + '=' + cValue + '; expires=' + cDate.toUTCString() + '; path=/';
+// 	document.cookie = cKey + '=' + cValue + '; expires=' + cDate + '; path=/';
 // } 
-// function getDate(cDays) {
-// 	let now = new Date();
-// 	let date = new Date(now.setDate(now.getDate() + cDays));
-// 	return date;
+// function deleteCookie(cKey) {
+// 	createCookie(cKey, '', -1);
+// }
+// function getCookie(cKey) {
+// 	let cook = document.cookie.split('; ');
+// 	let cValue;
+// 	if (cook) {
+// 		cook.forEach((cook) => {
+// 			const keyValue = cook.split('=');
+// 			if (keyValue[0] === cKey) {
+// 				cValue = keyValue[1];
+// 			}
+// 		})
+// 	}
+// 	return cValue;
 // }
 
-// createCookie('name', '', );
+// createCookie('test', 'testValue', 1);
+// createCookie('test2', 'testValue', 1);
+// // deleteCookie('test');
+// console.log(document.cookie);
+// console.log(getCookie('test'));
 
-// console.log(rCookie("name"));
-// console.log(rCookie("test"));
-// cCookie("test2", "new Cookie", 30);
-// dCookie("test2");
-// function cCookie(cName, value, days) {
-// 	if (days) {
-// 		const d = new Date();
-// 		d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
-// 		let e = "; expires=" + d.toUTCString();
-// 		console.log(e);
-// 		document.cookie = cName + "=" + value + e + "; path=/";
+//?
+
+// let symb = Symbol('key');
+// console.log(symb === symb);
+
+//?
+
+// let value = 'value information';
+// localStorage.setItem('keyIndex0', value);
+
+// if (localStorage.getItem('keyIndex0')) {
+// console.log(localStorage.getItem('keyIndex0'));
+// }
+// localStorage.removeItem('keyIndex0');
+
+//?
+
+// console.log(localStorage.key(0));
+// console.log(localStorage.getItem(localStorage.key(0)));
+
+// localStorage.clear();
+
+//TODO
+
+// let input = document.querySelector('input[name="input"]');
+// let output = document.querySelector('.output');
+// let tasks = JSON.parse(localStorage.getItem('tasklist')) || [];
+// let dialog = document.querySelector(".dialog");
+// input.nextElementSibling.addEventListener('click', addTask);
+
+// document.body.addEventListener('click', () => {dialog.classList.remove('visible');});
+
+// function deployTlist() {
+// 	output.innerText = '';
+// 	tasks.forEach((task) => {
+// 		genItem(task.value, task.isChecked);
+// 	})
+// }
+// deployTlist();
+
+// function saveTask() {
+// 	localStorage.setItem('tasklist', JSON.stringify(tasks));
+// 	deployTlist();
+// }
+// function genItem(value, isChecked) {
+// 	const li = document.createElement('li');
+// 	const textN = document.createTextNode(value);
+// 	li.append(textN);
+// 	if (isChecked) {
+// 		li.classList.add('ready');
+// 	}
+// 	li.addEventListener('click', () => {
+// 		li.classList.toggle('ready');
+// 		updateElement(event.target);
+// 	});
+// 	li.addEventListener('contextmenu', (e) => {
+// 		e.preventDefault();
+// 		dialog.classList.add('visible');
+// 		dialog.style.left = e.x + 'px';
+// 		dialog.style.top = e.y + 'px';
+// 		deleteElement(li);
+// 	});
+// 	output.appendChild(li);
+// }
+// function deleteElement(el) {
+// 	tasks.forEach((task) => {
+// 		if (task.value === el.innerText) {
+// 			tasks = tasks.filter(tsk => tsk!==task);
+// 		}
+// 	})
+// 	saveTask();
+// }
+// function updateElement(el) {
+// 	tasks.forEach((task) => {
+// 		if (task.value === el.innerText) {
+// 			if (el.classList.contains('ready')) {
+// 				task.isChecked = true;
+// 			} else {
+// 				task.isChecked = false;
+// 			}
+// 		}
+// 	})
+// 	saveTask();
+// }
+// function addTask() {
+// 	if (input.value) {
+// 		const tempObj = {
+// 			value: input.value,
+// 			isChecked: false,
+// 		}
+// 		input.value = '';
+// 		tasks.unshift(tempObj);
+// 		saveTask();
+// 		// genItem(tempObj.value);	
 // 	}
 // }
 
-// function rCookie(cName) {
-// 	let cookieValue = false;
-// 	let arr = document.cookie.split("; ");
-// 	arr.forEach(str => {
-// 		const cookie = str.split("=");
-// 		if (cookie[0] == cName) {
-// 			cookieValue = cookie[1];
+// console.log(localStorage);
+
+//TODO
+
+// let myLists = {
+// 	'friends': [
+// 		{
+// 			'name': 'Anton',
+// 			'address': 'Brest'
+// 		}
+// 	],
+// 	'colegs': [
+// 		{
+// 			'name': 'Maskim',
+// 			'address': 'Snitovo'
+// 		}
+// 	]
+// };
+// myLists = JSON.stringify(myLists);
+// myLists = JSON.parse(myLists);
+
+// console.log(myLists.friends[0]);
+
+//TODO
+// let mass = 'alf@gmail.com dsa@mail.ru.com alf@gmail.com';
+// mass = String(mass);
+
+// if (mass) {
+// 	let emailTest = /[\w0-9_]+@[\w0-9_]+\.\w+/g;
+// 	let test = mass.match(emailTest);
+// 	let arr = [];
+// 	test.forEach((each) => {
+// 		let temp = each.substring(each.indexOf(each), each.length);
+// 		if (arr.indexOf(temp) === -1) {
+// 			arr.push(temp);
+// 		}
+// 	})
+// 	mass = arr.join(' ');
+// 	console.log(mass);
+// }
+
+//?
+
+// const myForm = document.querySelector("form");
+// const inputs = document.querySelectorAll("input");
+// const errors = document.querySelectorAll(".error");
+// const required = ["email", "userName", "password"];
+// myForm.addEventListener("submit", validation);
+// function validation(e) {
+// 	let data = {};
+// 	e.preventDefault();
+// 	errors.forEach(function (item) {
+// 		item.classList.add("hide");
+// 	});
+// 	let error = false;
+// 	inputs.forEach(function (el) {
+// 		let tempName = el.getAttribute("name");
+// 		if (tempName != null) {
+// 			el.style.borderColor = "#ddd";
+// 			if (el.value.length == 0 && required.includes(tempName)) {
+// 				addError(el, "Required Field", tempName);
+// 				error = true;
+// 			}
+// 			if (tempName == "email") {
+// 				let exp = /([A-Za-z0-9._-]+@[A-Za-z0-9._-]+\.[A-Za-z0-9]+)\w+/;
+// 				if (!exp.test(el.value)) {
+// 					addError(el, "Invalid Email", tempName);
+// 					error = true;
+// 				}
+// 			}
+// 			if (tempName == "password") {
+// 				let exp = /[A-Za-z0-9]+$/;
+// 				let result = exp.test(el.value);
+// 				if (!result) {
+// 					addError(el, "Only numbers and Letters", tempName);
+// 					error = true;
+// 				}
+// 				if (el.value.length < 8) {
+// 					addError(el, "Needs to be at least 8 characters", tempName);
+// 					error = true;
+// 				}
+// 			}
+// 			data[tempName] = el.value;
 // 		}
 // 	});
-// 	return cookieValue;
+// 	if (!error) {
+// 			myForm.submit();
+// 	}
 // }
 
-// function dCookie(cName) {
-// 	cCookie(cName, "", -1);
+// function addError(el, mes, fieldName) {
+// 	let temp = el.nextElementSibling;
+// 	temp.classList.remove("hide");
+// 	temp.textContent = fieldName.toUpperCase() + " " + mes;
+// 	el.style.borderColor = "red";
+// 	el.focus();
 // }
-// let cookit = (document.cookie).split('; ');
-// console.log(cookit);
-
-function createCookie(cKey, cValue, days) {
-	function getDate(cDays) {
-		let now = new Date();
-		let date = new Date(now.setDate(now.getDate() + cDays));
-		return date.toUTCString();
-	}
-	let cDate = getDate(days);
-	document.cookie = cKey + '=' + cValue + '; expires=' + cDate + '; path=/';
-} 
-function deleteCookie(cKey) {
-	createCookie(cKey, '', -1);
-}
-function getCookie(cKey) {
-	let cook = document.cookie.split('; ');
-	let cValue;
-	if (cook) {
-		cook.forEach((cook) => {
-			const keyValue = cook.split('=');
-			if (keyValue[0] === cKey) {
-				cValue = keyValue[1];
-			}
-		})
-	}
-	return cValue;
-}
-
-createCookie('test', 'testValue', 1);
-createCookie('test2', 'testValue', 1);
-// deleteCookie('test');
-console.log(document.cookie);
-console.log(getCookie('test'));
-
-let date = Date.now();
-console.log(date.toUTCString());
-
-let date1 = Date();
