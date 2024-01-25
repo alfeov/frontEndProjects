@@ -1,0 +1,146 @@
+html {
+	font-family: 'Montserrat';
+	font-weight: 400;
+	font-size: 18px;
+}
+
+body {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+.visually-hidden {
+	display: none;
+}
+
+.wrapper-form {
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 50px 30px;
+	position: relative;
+}
+
+.form {
+	max-width: 100%;
+	padding: 27px 30px 32px 30px;
+
+	background-color: rgb(7, 7, 7);
+	color: rgb(221, 220, 220);
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.596);
+}
+
+/* ? */
+.form-head {
+	font-size: 24px;
+}
+
+.mail {
+	margin: 30px 0;
+}
+
+.mail label {
+	display: block;
+	margin: 0 0 5px 1px;
+	font-size: 20px;
+}
+/* ? */
+
+.forminput {
+	height: 30px;
+	width: 100%;
+	padding: 0 6px;
+	border-radius: 5px;
+	border: 0px;
+	font-size: 18px;
+}
+
+.forminput,
+.send {
+	background-color: rgb(221, 220, 220);
+	color: rgb(7, 7, 7);
+}
+
+/* ? */
+.forminput._error {
+	box-shadow: 0 0 10px rgb(221, 220, 220);
+}
+/* ? */
+
+.checkbox-box {
+	display: none;
+}
+
+.checkbox label {
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	margin-left: 1px;
+	position: relative;
+
+}
+
+.checkbox label::before {
+	content: '';
+	align-self: flex-start;
+	flex: 0 0 20px;
+	height: 20px;
+	background-color: rgb(221, 220, 220);
+	border-radius: 4px;
+	margin-right: 8px;
+	box-shadow: 0 0 5px inset;
+}
+
+.checkbox label::after {
+	content: '';
+	width: 14px;
+	height: 14px;
+	border-radius: 3px;
+	position: absolute;
+	background-color: rgb(7, 7, 7);
+	top: 3px;
+	left: 3px;
+	transform: scaleY(0) scaleX(0.5);
+	transition: .1s;
+}
+
+.checkbox-box:checked+label::after {
+	transform: scaleY(1) scaleX(1);
+}
+
+.send-conteiner {
+	width: 100%;
+	display: flex;
+	justify-content: right;
+}
+
+.send {
+	height: 30px;
+	max-width: 300px;
+	width: 150px;
+	border: 0px;
+	padding: 18px 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+	border-radius: 5px;
+}
+
+.send:hover {
+	background-color: rgba(221, 220, 220, 0.9);
+}
+
+/* @media (min-width: 466px) {
+	.checkbox {
+		padding-bottom: 30px;
+	}
+}
+@media (max-width: 465px) {
+	.mail {
+		margin: 5px 0 20px 0;
+	}
+	.checkbox {
+		padding-bottom: 20px;
+	}
+} */

@@ -310,3 +310,67 @@
 // 	el.style.borderColor = "red";
 // 	el.focus();
 // }
+
+//TODO
+
+const app = function() {
+	let val1 = document.querySelector('.val1');
+	let val2 = document.querySelector('.val2');
+	let input = document.querySelector('input[name="answer"]');
+	let output = document.querySelector('.output');
+	document.querySelector('button').addEventListener('click', checker);
+	let game = {};
+
+	function checker() {
+		let value = input.value;
+		if (!(value.length > 0)) {
+			result(false, 'Enter value!');
+		} else if (isNaN(+value)) {
+			result(false, 'Not a number!');
+		} else if (!isNaN(+value)) {
+			if (+value === game.res) {
+				result(true, 'Correct');
+				setTimeout(() => {
+					input.value = '';
+					output.style.backgroundColor = 'transparent';
+					output.textContent = '';
+				}, 1000);
+				loadQuestions();
+			} else {
+				result(false, 'Not correct!');
+			}
+		}
+		function result(isTrue, message) {
+			if (isTrue) {
+				output.style.backgroundColor = 'green';
+			} else {
+				output.style.backgroundColor = 'red';
+			}
+			output.textContent = message;
+		}
+	}
+	function loadQuestions() {
+		const op1 = rand(0,10);
+		const op2 = rand(0,10);
+		val1.innerText = op1
+		val2.innerText = op2
+		game.op1 = op1;
+		game.op2 = op2;
+		game.res = op1 + op2;
+		function rand(min, max) {
+			return Math.floor(Math.random() * (max - min + 1) + min);
+		}
+	}
+	return {
+		loadQuestions:loadQuestions
+	};
+}();
+
+window.addEventListener('load', app.loadQuestions);
+
+// enjoy avaScript 
+// yes
+// msec - 1 > expire cookie
+// hello
+// reference error
+// a c b
