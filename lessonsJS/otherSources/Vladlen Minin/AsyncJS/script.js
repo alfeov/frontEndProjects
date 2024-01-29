@@ -37,55 +37,112 @@ const URL2 = 'https://jsonplaceholder.typicode.com/photos/1';
 // 	.then(json => {console.log(json)})
 // let users = ['iliakan', 'remy', 'no.such.users'];
 // getUsers(users);
-getUsers(['iliakan', 'remy', 'no.such.users', 'mojombo', 'defunkt', 'pjhyett', 'wycats']);
+// getUsers(['iliakan', 'remy', 'no.such.users', 'mojombo', 'defunkt', 'pjhyett', 'wycats']);
 
-async function getUsers(names = []) {
-	let users = [];
-	if (names[0] !== undefined) {
-		names.forEach(async (name) => {
-			console.log(await sider(name));
-		})
-		
+
+const setPromise = (value, time, isRejecter = false) => 
+	new Promise((res, rej) => 
+		setTimeout(() => {isRejecter ? rej(value) : res(value)}, time));
+
+const init = async () => {
+	let arrUsersInfo = await getUsers(['whats?', 'egor', 'alfeov', 'mojombo', 'no.such.name']);
+	console.log(arrUsersInfo);
+	for (let info of arrUsersInfo) {
+		console.log(info);
 	}
-	return users;
 }
 
-async function sider(name) {
-	let response = await fetch(`https://api.github.com/users/${name}`)
-		.then(response => response.json())
-		.catch(error => {console.log(error)})
-	console.log(response);
-	// let json = await ; 
-	// json.catch(error => {console.log(error)});
-	// console.log(await json);
-		// .then(response => {
-		// 	if (!response.ok) {
-		// 		throw new Error();
-		// 	}
-		// 	return response.json();
-		// })
-		// .then(json => {
-			
-		// })
-		// .catch((error) => {
-		// 	name = null;
-		// })
-	
-}
-
-// return new Promise((res, rej) => {
-// 	if (name !== 'no.such.users') {
-// 		res(name);
-// 	} else {
-// 		rej(null)
+//!
+// const getUsers = async (names = []) => {
+// 	let arrUsersInfo = [];
+// 	if (names.length) {
+// 		names.forEach(async (name) => {
+// 			let result = fetch(`https://api.github.com/users/${name}`)
+// 				.then(response => {
+// 					if (response.ok) {
+// 						return response.json()
+// 					} else {
+// 						throw new Error();
+// 					}
+// 				})
+// 				.then(json => {
+// 					if (json.login === name) {
+// 						return name;
+// 					} else {
+// 						return null;
+// 					}
+// 				}) 
+// 				.catch(error => {
+// 					console.log(error);
+// 					return null;
+// 				})
+// 			arrUsersInfo.push(result);
+// 		})
+// 		arrUsersInfo = await Promise.all(arrUsersInfo)
 // 	}
-// })
+// 	return arrUsersInfo;
+// }
+// init();
+//!
+// const getUsers = async (names = []) => {
+// 	let arrUsersInfo = [];
 
-					// return new Promise((res, rej) => {
-					// 	// if (response.ok) {
-					// 	// 	res(response.json());
-					// 	// } else {
-					// 	// 	rej('new text');
-					// 	// }
-					// })
+// 	arrUsersInfo = await Promise.all(names.map(async x => {
+// 		let name = fetch(`https://api.github.com/users/${x}`)
+// 			.then(response => {
+// 				if (response.ok) {
+// 					return response.json()
+// 				} else {
+// 					throw new Error();
+// 				}
+// 			})
+// 			.then(json => {
+// 				if (json.login === x) {
+// 					return json.login;
+// 				} else {
+// 					return null;
+// 				}
+// 			}) 
+// 			.catch(error => {
+// 				console.log(error);
+// 				return null;
+// 			})
+// 		return name;
+// 	}))
+// 	return arrUsersInfo;
+// }
+// init();
+//!
+
+const getUsers = (async (names = []) => {
+	let arrUsersInfo = [];
+	
+	arrUsersInfo = await Promise.all(names.map(async x => {
+		let name = fetch(`file.json`)
+			.then(response => {
+				if (response.ok) {
+					return response.json()
+				} else {
+					throw new Error();
+				}
+			})
+			.then(json => {
+				if (json.login === x) {
+					return json.login;
+				} else {
+					return null;
+				}
+			}) 
+			.catch(error => {
+				console.log(error);
+				return null;
+			})
+		return name;
+	}))
+	return arrUsersInfo;
+})(['whats?', 'egor', 'alfeov', 'mojombo', 'no.such.name'])
+	.then(response => {
+		let res = response.filter(x => {if(x) {return x}})
+		console.log(res);
+	});
 
