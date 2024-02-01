@@ -128,7 +128,7 @@ function Person(name, age) {
 // 	console.log(`hello, my name is ${this.name}, my age is ${this.age}`);
 // }
 const person1 = new Person('Anton', 19);
-// const person2 = new Person('Nasty', 17);
+const person2 = new Person('Nasty', 17);
 // person1.introduce();
 // person2.introduce();
 
@@ -194,6 +194,66 @@ let addWith2And3 = addWith2(3);
 let addWith2And3And4 = addWith2And3(4);
 
 // Вызываем частично примененные функции
-console.log(addWith2And3And4(5));
+// console.log(addWith2And3And4(5));
 
 //! let t = (tag, ...classes) => text => `<${tag} class="${classes.join(' ')}">${text}<${tag}>`;
+
+//?
+
+person1.hi = function() {
+	console.log('Hello', this.name);
+}
+
+person2.hi = person1.hi.bind(person2);
+
+// bind(null, ...args)
+function a() {
+	console.log(this);
+}
+// window.a();
+
+//? 
+
+function bar() {
+  console.log(Object.prototype.toString.call(this));
+  console.log(this);
+	console.log(typeof(this));
+}
+
+// bar.call(7);
+// bar.call("foo");
+
+//?
+
+const obj = {
+	name: 'Anton',
+  getThisGetter() {
+    const getter = () => console.log(this);
+    return getter;
+  },
+};
+
+let getter = obj.getThisGetter();
+getter(); //obj
+
+const fn2 = obj.getThisGetter;
+// console.log(fn2()() === globalThis); // true в нестрогом режиме
+// console.log(fn2()()); //undefined в строгом режиме
+
+//?obj
+
+function C1() {
+  this.a = 37;
+  return { a: 38 };
+}
+function C2() {
+  this.a = 37;
+	return { b: 38 };
+}
+
+var o = new C1();
+console.log(o.a); // logs 38
+var o = new C2();
+console.log(o.a, o.b); // logs (undefined 38)
+
+// target && currentTarget

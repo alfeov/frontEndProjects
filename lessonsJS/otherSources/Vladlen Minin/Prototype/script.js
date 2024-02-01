@@ -35,6 +35,7 @@
 // Person1.name = 'Vika';
 // Person1.age = 29;
 
+
 // let Person2 = {name: 'Anton', age: 19, sayHello: 'hi'};
 // Person2.__proto__ = Person;
 
