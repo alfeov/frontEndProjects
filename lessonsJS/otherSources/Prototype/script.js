@@ -57,3 +57,24 @@
 // hasProp(testObj, 'testProp');
 
 // console.log(!!testObj);
+
+//TODO
+
+Function.prototype.defer = function(ms) {
+	return (...args) => {
+		setTimeout(() => {this.apply(null, args)}, ms);
+	}
+}
+
+// function f() {
+//   console.log("Hello!");
+// }
+
+// f.defer(1000); // выведет "Hello!" через 1 секунду
+
+function f(a, b) {
+  console.log( a + b );
+}
+
+f.defer(1000)(1, 2);
+// (1, 2); // выведет 3 через 1 секунду.
