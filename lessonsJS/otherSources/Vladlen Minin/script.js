@@ -70,15 +70,15 @@ Object.prototype.print = function() {
 cat.print();
 
 
-let arr = [1, 2, 3, 4];
+// let arr = [1, 2, 3, 4];
 
-Array.prototype.myMap = function(...args) {
-	let temp = this.map.apply(this, args);
-	for (let i = 0; i < this.length; i++) {
-		this[i] = temp[i];
-	}
-	return temp;
-}
+// Array.prototype.myMap = function(...args) {
+// 	let temp = this.map.apply(this, args);
+// 	for (let i = 0; i < this.length; i++) {
+// 		this[i] = temp[i];
+// 	}
+// 	return temp;
+// }
 
-arr.myMap(x => x ** x);
-console.log(arr);
+// arr.myMap(x => x ** x);
+// console.log(arr);

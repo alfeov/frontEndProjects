@@ -1,0 +1,56 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 18px;
+}
+
+body {
+	padding: 1rem;
+	background-color: black;
+	color: #d1d1e6;
+}
+
+li {
+	margin-left: 14px;
+	margin-bottom: 8px;
+	font-size: 24px;
+}
+
+@keyframes marker-animation {
+	0% {
+		color: transparent;
+	}
+
+
+	10% {
+		color: lightgreen;
+	}
+
+}
+
+ul li::marker {
+	color: lightgreen;
+	animation: marker-animation 5s ease-out backwards;
+}
+
+ul li:nth-child(1)::marker {
+	animation-delay: 1s;
+}
+
+ul li:nth-child(2)::marker {
+	animation-delay: 2s;
+}
+
+ul li:nth-child(3)::marker {
+	animation-delay: 3s;
+}
+
+ul li:nth-child(4)::marker {
+	animation-delay: 4s;
+}
