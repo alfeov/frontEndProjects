@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		*,*::after,*::before {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		html {
+			font-size: 18px;
+		}
+		.wrapper {
+			max-width: 400px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: whitesmoke;
+			height: 200px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+		}
+
+		.label {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.checkbox {
+			appearance: none;
+			min-height: 1.65rem;
+  		min-width: 1.65rem;
+			border-radius: 0.2rem;
+			background: lightgrey;
+			box-shadow: 1px 2px 3px #0003 inset;
+			margin-right: 10px;
+			transition: 0.25s linear background;
+			position: relative;
+		}
+		.checkbox::before {
+			content: '';
+			box-shadow: none;
+			background-image: url("");
+			position: absolute;
+			/* top: 0.2rem;
+			left: 0.5rem; */
+			transition: 0.05s linear opacity;
+			/* opacity: 0; */
+		}
+		.checkbox:checked {
+			background: rgb(5, 99, 240);
+		}
+		.checkbox:checked::before {
+			opacity: 1;
+		}
+		/*
+		.checkboxLikeApple:checked::before {
+			transform: translateX(1rem);
+		}
+		.checkboxLikeApple:focus-visible {
+			outline: 2px solid rgb(5, 99, 240);
+			outline-offset: 2px;
+		} */
+
+		label {
+			font-size: 2rem;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="wrapper">
+			<label for="checkbox" class="label">
+				<input type="checkbox" name="" id="checkbox" class="checkbox">
+				Lorem ipsum dolor sit amet consectetur.
+			</label>
+	</div>
+	<svg height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17.837 17.837" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path style="fill:#ffffff;" d="M16.145,2.571c-0.272-0.273-0.718-0.273-0.99,0L6.92,10.804l-4.241-4.27 c-0.272-0.274-0.715-0.274-0.989,0L0.204,8.019c-0.272,0.271-0.272,0.717,0,0.99l6.217,6.258c0.272,0.271,0.715,0.271,0.99,0 L17.63,5.047c0.276-0.273,0.276-0.72,0-0.994L16.145,2.571z"></path> </g> </g></svg>
+	
+
+	<script>
+
+	</script>
+</body>
+</html>
