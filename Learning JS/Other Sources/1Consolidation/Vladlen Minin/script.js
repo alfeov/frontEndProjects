@@ -31,43 +31,56 @@
 
 //? Classes
 
-class Animal {
-	constructor(name) {
-		this.name = name;
-	}
+// class Animal {
+// 	constructor(name) {
+// 		this.name = name;
+// 	}
 
-	sayHi() {
-		console.log('Hello, I\'m', this.name);
+// 	sayHi() {
+// 		console.log('Hello, I\'m', this.name);
+// 	}
+// }
+
+// let animal = new Animal('Grizlik');
+// animal.sayHi();
+// console.dir(animal);
+
+// class Cat extends Animal {
+// 	constructor(name) {
+// 		super(name);
+// 	}
+
+// 	sayHi() {
+// 		super.sayHi();
+// 		console.log('I\'m cat!');
+// 	}
+// }
+
+// let cat = new Cat('Puxlik', 'and other');
+// cat.sayHi();
+// console.dir(cat);
+
+// Animal.prototype.func = function() {
+// 	console.log('Hello');
+// }
+
+// Object.prototype.print = function() {
+// 	console.log(this);
+// }
+// cat.print();
+
+
+let arr = [{firstName:'George', secondName:'Hello'}, {firstName:'Anton', secondName:'Ge'}];
+
+let input = 'ge';
+let inpToReg = new RegExp('^' + input, 'i')
+console.log(inpToReg);
+
+for (let i = 0; i < arr.length; i++) {
+	if (arr[i].firstName.match(inpToReg) !== null || arr[i].secondName.match(inpToReg)) {
+		console.log(arr[i]);
 	}
 }
 
-let animal = new Animal('Grizlik');
-animal.sayHi();
-console.dir(animal);
-
-class Cat extends Animal {
-	constructor(name) {
-		super(name);
-	}
-
-	sayHi() {
-		super.sayHi();
-		console.log('I\'m cat!');
-	}
-}
-
-let cat = new Cat('Puxlik', 'and other');
-cat.sayHi();
-console.dir(cat);
-
-Animal.prototype.func = function() {
-	console.log('Hello');
-}
-
-Object.prototype.print = function() {
-	console.log(this);
-}
-cat.print();
-
-
-// let arr = [1, 2, 3, 4];
+// let output = 
+// console.log(output);
