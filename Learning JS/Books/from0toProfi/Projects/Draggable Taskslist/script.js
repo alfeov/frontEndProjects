@@ -1,1 +1,0 @@
-//if index > or < then all that > +1pos else -1pos
