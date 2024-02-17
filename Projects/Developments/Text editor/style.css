@@ -1,0 +1,124 @@
+/* Global */
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+  background-color: rgb(37, 36, 36);
+}
+
+.container {
+  background-color: #ffffff;
+  width: 90vmin;
+  padding: 30px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  border-radius: 10px;
+  box-shadow: 0 25px 50px rgba(7, 20, 35, 0.2);
+}
+/* Textarea */
+#text-input {
+	border: 1px solid black;
+	border-radius: 20px;
+	padding: 20px;
+	margin-bottom: 20px;
+	height: 50vh;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+/* Scrollbar */
+::-webkit-scrollbar {
+	width: 10px;
+}
+::-webkit-scrollbar-track {
+	margin: 17px 0;
+	border-radius: 10px
+}
+::-webkit-scrollbar-thumb {
+	background-color: rgb(20, 20, 20);
+	border: 3px solid white;
+	border-radius: 10px
+}
+/* Options */
+.options {
+	display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+	justify-content: center;
+}
+.option_section {
+	display: flex;
+	position: relative;
+}
+.option_section::before {
+	content: '';
+	width: 1px;
+	height: 18px;
+	align-self: center;
+	background-color: rgb(88, 85, 85);
+}
+.option_section::after {
+	content: '';
+	width: 1px;
+	position: relative;
+	left: 1px;
+	height: 18px;
+	align-self: center;
+	background-color: rgb(88, 85, 85);
+}
+.options button {
+	/* margin: 0 2px; */
+	height: 28px;
+  width: 28px;
+	display: grid;
+  place-items: center;
+  border: none;
+	border-radius: 5px;
+  background-color: transparent;
+  outline: none;
+  color: #000000;
+	cursor: pointer;
+}
+.options section button {
+	margin-right: 2px;
+}
+.options section button:first-child {
+	margin-left: 2px;
+}
+
+.options button:hover, .options .active {
+	background-color: black;
+	color: whitesmoke;
+}
+
+.color-section {
+	gap: 5px;
+}
+.color-section label {
+	margin: 0 5px;
+}
+.color-input {
+	display: flex;
+	align-items: center;
+}
+input[type="color"] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: transparent;
+	cursor: pointer;
+	width: 30px;
+	height: 23px;
+	border: none;
+}
+input[type="color"]::-webkit-color-swatch {
+	border-radius: 15px;
+}
+input[type="color"]::-moz-color-swatch {
+	border-radius: 15px;
+}
