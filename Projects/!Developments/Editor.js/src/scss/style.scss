@@ -1,0 +1,19 @@
+@import 'normalize.css';
+@import 'variables.scss';
+
+.container {
+	margin: 0 auto;
+	padding: 30px;
+	width: 750px;
+}
+
+.container__section {
+	padding-left: 15px;
+	width: 100%;
+	box-shadow: 0 0 16px 12px rgba(41, 40, 40, 0.452);
+}
+
+.editor {
+	margin-top: 50px;
+	width: 100%;
+}
